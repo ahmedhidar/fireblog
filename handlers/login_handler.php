@@ -9,7 +9,7 @@ if($_SERVER['REQUEST_METHOD'] !== 'POST') {
     redirect('../auth/login.php');
 }
 $email = trim(htmlspecialchars($_POST['email']) ?? '');
-$password = trim(htmlspecialchars($_POST['password']) ?? '');
+$password = $_POST['password'] ?? '';
 
 IF(empty($email)||!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     $_SESSION['error_message'] = "Invalid email address.";
